@@ -5,18 +5,18 @@ using System.Text;
 
 namespace MoodAnalyzerFinal
 {
-    public class MoodAnalyse
+    public class MoodAnalyser
     {
         public string message;
-        public MoodAnalyse()
+        public MoodAnalyser()
         {
             //Default Constructor
         }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MoodAnalyse"/> class.
+        /// Initializes a new instance of the <see cref="MoodAnalyser"/> class.
         /// </summary>
         /// <param name="message">The message.</param>
-        public MoodAnalyse(string message)
+        public MoodAnalyser(string message)
         {
             this.message = message;
         }

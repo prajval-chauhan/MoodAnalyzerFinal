@@ -6,7 +6,16 @@ namespace MoodAnalyzerFinal
 {
     public class MoodAnalyse
     {
-        public string AnalyseMessage(string message)
+        public string message;
+        public MoodAnalyse()
+        {
+            //Default Constructor
+        }
+        public MoodAnalyse(string message)
+        {
+            this.message = message;
+        }
+        public string AnalyseMessage()
         {
             string messageConverted = message.ToLower();
             if (messageConverted.Contains("sad"))

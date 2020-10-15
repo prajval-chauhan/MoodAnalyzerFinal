@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using System.Text;
 
 namespace MoodAnalyzerFinal
@@ -11,6 +12,10 @@ namespace MoodAnalyzerFinal
         {
             //Default Constructor
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MoodAnalyse"/> class.
+        /// </summary>
+        /// <param name="message">The message.</param>
         public MoodAnalyse(string message)
         {
             this.message = message;
@@ -23,16 +28,18 @@ namespace MoodAnalyzerFinal
         {
             try
             {
-                string messageConverted = message.ToLower();
-                if (messageConverted.Contains("sad"))
+                if (this.message.Equals(string.Empty))
+                    throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be empty");
+                if (this.message.Contains("sad"))
                     return "SAD";
                 else
                     return "HAPPY";
             }
-            catch
+            catch(NullReferenceException)
             {
-                return "HAPPY";
+                throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
             }
+
         }
     }
 }

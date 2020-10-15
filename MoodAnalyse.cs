@@ -15,13 +15,24 @@ namespace MoodAnalyzerFinal
         {
             this.message = message;
         }
+        /// <summary>
+        /// Method to analyse the mood of the given message
+        /// </summary>
+        /// <returns></returns>
         public string AnalyseMessage()
         {
-            string messageConverted = message.ToLower();
-            if (messageConverted.Contains("sad"))
-                return "SAD";
-            else
+            try
+            {
+                string messageConverted = message.ToLower();
+                if (messageConverted.Contains("sad"))
+                    return "SAD";
+                else
+                    return "HAPPY";
+            }
+            catch
+            {
                 return "HAPPY";
+            }
         }
     }
 }
